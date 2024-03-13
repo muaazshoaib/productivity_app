@@ -1,15 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:productivity_app/app/modules/authentication/pages/authentication.dart';
+import 'package:productivity_app/app/modules/home.dart';
 import 'package:productivity_app/firebase_options.dart';
 import 'package:productivity_app/theme/theme.dart';
-
-
-
-
-
-
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +21,8 @@ class ProductivityApp extends StatelessWidget {
     return MaterialApp(
       title: 'Productivity App',
       theme: AppTheme.lightTheme,
-      home: const AuthenticationPage(),
+      // home: const AuthenticationPage(),
+      home: const HomePage(),
     );
   }
 }

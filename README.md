@@ -1,5 +1,14 @@
 # Productivity App - Final Year Project
 
+1. Task manager: https://youtu.be/X7TTK9T77fo
+2. Event calendar: https://youtu.be/3OROjbAQS8Y
+3. AI chat-bot: https://youtu.be/_yg1KHNv_tE
+4. Focus mode: https://pub.dev/packages/flutter_dnd
+5. Note-taking: https://youtu.be/tMM9ty4Wfq0
+6. Pomodoro timer: https://youtu.be/4xsLEzRHA28
+7. Habit tracker: https://youtu.be/TLaWibjFArw
+8. Analytics: https://youtu.be/8j6iw33bJU0
+
 ## App Features
 
 Here's a refined suggestion for placing features in the drawer and the bottom navigation bar based on accessibility, frequency of use, and user expectations:
@@ -18,7 +27,7 @@ Here's a refined suggestion for placing features in the drawer and the bottom na
    - Schedule appointments, set reminders, and view upcoming events.
    - As calendar access is a common task, it fits well in the bottom navigation.
 
-4. **ChatGPT Integration:**
+4. **ChatBot Integration:**
    - Include it in the bottom navigation for easy and direct access.
    - Users may use ChatGPT for quick task creation, reminders, and notes.
 
@@ -35,17 +44,16 @@ Here's a refined suggestion for placing features in the drawer and the bottom na
    - Accessible from the drawer, allowing users to quickly jot down notes or ideas.
    - A dedicated section for organizing and accessing notes.
 
-4. **Analytics:**
-   - Keep analytics in the drawer for periodic review and analysis.
-   - Users may not access analytics as frequently as other features.
-
-5. **Pomodoro Timer:**
+4. **Pomodoro Timer:**
    - Consider placing it in the drawer as it's a focused work feature, not used continuously throughout the day.
 
-6. **Habit Tracker:**
+5. **Habit Tracker:**
    - Also, place the habit tracker in the drawer as users may check progress periodically.
+
+6. **Analytics:**
+   - Keep analytics in the drawer for periodic review and analysis.
+   - Users may not access analytics as frequently as other features.
 
 7. **Settings:**
    - Include a section for general app settings, theme customization, and account settings.
    - Users usually access settings less frequently, making it suitable for the drawer.
-
