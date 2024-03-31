@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:productivity_app/app/modules/home.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:productivity_app/app/modules/authentication/screens/authentication_screen.dart';
+
 import 'package:productivity_app/firebase_options.dart';
 import 'package:productivity_app/theme/theme.dart';
 
@@ -10,7 +13,14 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const ProductivityApp());
+  await Hive.initFlutter();
+  await Hive.openBox("Habit_Database");
+
+  runApp(
+    const ProviderScope(
+      child: ProductivityApp(),
+    ),
+  );
 }
 
 class ProductivityApp extends StatelessWidget {
@@ -21,8 +31,7 @@ class ProductivityApp extends StatelessWidget {
     return MaterialApp(
       title: 'Productivity App',
       theme: AppTheme.lightTheme,
-      // home: const AuthenticationPage(),
-      home: const HomePage(),
+      home: const AuthenticationScreen(),
     );
   }
 }

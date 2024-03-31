@@ -18,6 +18,32 @@ dependencies:
   firebase_core:
   cloud_firestore:
   cunning_document_scanner:
+  flutter_dnd:
+  flutter_riverpod:
+  flutter_switch:
+  flutter_inset_box_shadow:
+  fl_chart:
+  curved_navigation_bar:
+  hive_flutter:
+  flutter_slidable:
+  flutter_heatmap_calendar:
+  gap:
+  intl:
+  google_fonts:
+  flutter_colorpicker:
+  shared_preferences:
+  animated_snack_bar:
+  google_generative_ai:
+  table_calendar:
+  image_picker: 
+  image: 
+  permission_handler: 
+  pdf: 
+  media_scanner: 
+  external_path: 
+  path_provider:
+  camera:
+  image_gallery_saver:
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +53,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
