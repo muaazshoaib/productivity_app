@@ -14,7 +14,7 @@ class Data extends StatefulWidget {
 
 class _DataState extends State<Data> {
   SharedPreferences? _prefs;
-  String _data = '';
+  final String _data = '';
   late Map<int, String> _sessions;
   final List<String> _dates = [];
   final List<String> _sesh = [];
@@ -29,14 +29,15 @@ class _DataState extends State<Data> {
     _getPrefs();
   }
 
-  // Future<void> _resetTime() async {
-  //   await _prefs!.setString('time', '');
-  // }
+  // ignore: unused_element
+  Future<void> _resetTime() async {
+    await _prefs!.setString('time', '');
+  }
 
   void _getPrefs() async {
     _prefs = await SharedPreferences.getInstance();
     setState(() {
-      _data = _prefs!.getString('time')!;
+      // _data = _prefs!.getString('time')!;
       final split = _data.split('/');
 
       _sessions = {for (int i = 0; i < split.length; i++) i: split[i]};
@@ -61,20 +62,7 @@ class _DataState extends State<Data> {
         backgroundColor: kBackgroundColor,
         // padding: const EdgeInsets.all(20.0),
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: false,
-          elevation: 0,
-          backgroundColor: kBackgroundColor,
-          title: const Text.rich(
-            TextSpan(
-              text: 'Pomodoro Analytics', // text for title
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.black,
-                fontFamily: 'Arial',
-              ),
-            ),
-          ),
+          title: const Text("Pomodoro Analytics"),
         ),
         body: SizedBox(
             width: 600,
@@ -95,11 +83,11 @@ class _DataState extends State<Data> {
                     children: [
                       Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
+                          borderRadius: BorderRadius.circular(45.0),
                         ),
                         clipBehavior: Clip.antiAlias,
                         color: kBackgroundColor,
-                        shadowColor: Colors.grey,
+                        // shadowColor: Colors.grey,
                         elevation: 15,
                         child: Padding(
                           padding: const EdgeInsets.all(26.0),
@@ -108,7 +96,7 @@ class _DataState extends State<Data> {
                               const Icon(
                                 Icons.access_time_filled_outlined,
                                 color: Colors.black,
-                                size: 50,
+                                size: 40,
                               ),
                               Text(_totalMin.toString(),
                                   style: const TextStyle(
@@ -128,7 +116,7 @@ class _DataState extends State<Data> {
                       ),
                       Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
+                          borderRadius: BorderRadius.circular(45.0),
                         ),
                         clipBehavior: Clip.antiAlias,
                         color: kBackgroundColor,
@@ -141,7 +129,7 @@ class _DataState extends State<Data> {
                               const Icon(
                                 Icons.emoji_events,
                                 color: Colors.black,
-                                size: 50,
+                                size: 40,
                               ),
                               Text(_longestSesh.toString(),
                                   style: const TextStyle(
@@ -161,11 +149,11 @@ class _DataState extends State<Data> {
                       ),
                       Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
+                          borderRadius: BorderRadius.circular(45.0),
                         ),
                         clipBehavior: Clip.antiAlias,
                         color: kBackgroundColor,
-                        shadowColor: Colors.black,
+                        //shadowColor: kBackgroundColor,
                         elevation: 15,
                         child: Padding(
                           padding: const EdgeInsets.all(26.0),
@@ -174,7 +162,7 @@ class _DataState extends State<Data> {
                               const Icon(
                                 Icons.calendar_month_rounded,
                                 color: Colors.black,
-                                size: 50,
+                                size: 40,
                               ),
                               Text(_seshNum.toString(),
                                   style: const TextStyle(
@@ -207,7 +195,7 @@ class _DataState extends State<Data> {
                               const Icon(
                                 Icons.bar_chart_rounded,
                                 color: Colors.black,
-                                size: 50,
+                                size: 40,
                               ),
                               Text(
                                   double.parse((_avgSesh).toStringAsFixed(2))

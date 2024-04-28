@@ -35,24 +35,6 @@ class TextContainer extends StatelessWidget {
           ),
         ],
       ),
-      // decoration: BoxDecoration(
-      //     color: Colors.grey[300],
-      //     borderRadius: BorderRadius.circular(12),
-      //     boxShadow: [
-      //       //top right shadow is a bit darker
-      //       BoxShadow(
-      //         color: Colors.grey.shade500,
-      //         offset: Offset(4, 4),
-      //         blurRadius: 15,
-      //         spreadRadius: 1,
-      //       ),
-      //       //bottom right shadow is a bit lighter
-      //       BoxShadow(
-      //           color: Colors.white,
-      //           offset: Offset(-4, -4),
-      //           blurRadius: 15,
-      //           spreadRadius: 1)
-      //     ]),
     );
   }
 }

@@ -11,11 +11,10 @@ class MyTimer extends StatefulWidget {
   final String workSessions;
 
   const MyTimer(
-      {Key? key,
+      {super.key,
       required this.breakTime,
       required this.workTime,
-      required this.workSessions})
-      : super(key: key);
+      required this.workSessions});
 
   @override
   _TimerState createState() => _TimerState();

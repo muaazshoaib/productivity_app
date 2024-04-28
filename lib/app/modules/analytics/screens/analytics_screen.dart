@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:productivity_app/app/utils/colors.dart';
 
 import '../../habit_tracker/screens/habit_tracker_monthly_summary_screen.dart';
 
@@ -33,6 +34,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         children: pages,
       ),
       bottomNavigationBar: NavigationBar(
+        backgroundColor: kBackgroundColor,
         onDestinationSelected: (int index) => changeTabIndex(index),
         selectedIndex: tabIndex,
         destinations: const [

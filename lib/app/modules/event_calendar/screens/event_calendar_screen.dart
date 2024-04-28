@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:productivity_app/app/widgets/three_dimensional_container.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
@@ -97,8 +99,12 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
                 //Navigator.pop(context);
                 return;
               } else {
-                print(titleController.text);
-                print(descpController.text);
+                if (kDebugMode) {
+                  print(titleController.text);
+                }
+                if (kDebugMode) {
+                  print(descpController.text);
+                }
 
                 setState(() {
                   if (mySelectedEvents[
@@ -121,8 +127,10 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
                   }
                 });
 
-                print(
-                    "New Event for backend developer ${json.encode(mySelectedEvents)}");
+                if (kDebugMode) {
+                  print(
+                      "New Event for backend developer ${json.encode(mySelectedEvents)}");
+                }
                 titleController.clear();
                 descpController.clear();
                 Navigator.pop(context);
@@ -140,59 +148,72 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Event Calendar Example'),
+        title: const Text('Event Calendar'),
       ),
-      body: Column(
-        children: [
-          TableCalendar(
-            firstDay: DateTime(2024),
-            lastDay: DateTime(2025),
-            focusedDay: _focusedDay,
-            calendarFormat: _calendarFormat,
-            onDaySelected: (selectedDay, focusedDay) {
-              if (!isSameDay(_selectedDate, selectedDay)) {
-                // Call `setState()` when updating the selected day
-                setState(() {
-                  _selectedDate = selectedDay;
-                  _focusedDay = focusedDay;
-                });
-              }
-            },
-            selectedDayPredicate: (day) {
-              return isSameDay(_selectedDate, day);
-            },
-            onFormatChanged: (format) {
-              if (_calendarFormat != format) {
-                // Call `setState()` when updating calendar format
-                setState(() {
-                  _calendarFormat = format;
-                });
-              }
-            },
-            onPageChanged: (focusedDay) {
-              // No need to call `setState()` here
-              _focusedDay = focusedDay;
-            },
-            eventLoader: _listOfDayEvents,
-          ),
-          ..._listOfDayEvents(_selectedDate!).map(
-            (myEvents) => ListTile(
-              leading: const Icon(
-                Icons.done,
-                color: Colors.teal,
-              ),
-              title: Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: Text('Event Title:   ${myEvents['eventTitle']}'),
-              ),
-              subtitle: Text('Description:   ${myEvents['eventDescp']}'),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            TableCalendar(
+              firstDay: DateTime(2024),
+              lastDay: DateTime(2025),
+              focusedDay: _focusedDay,
+              calendarFormat: _calendarFormat,
+              onDaySelected: (selectedDay, focusedDay) {
+                if (!isSameDay(_selectedDate, selectedDay)) {
+                  // Call `setState()` when updating the selected day
+                  setState(() {
+                    _selectedDate = selectedDay;
+                    _focusedDay = focusedDay;
+                  });
+                }
+              },
+              selectedDayPredicate: (day) {
+                return isSameDay(_selectedDate, day);
+              },
+              onFormatChanged: (format) {
+                if (_calendarFormat != format) {
+                  // Call `setState()` when updating calendar format
+                  setState(() {
+                    _calendarFormat = format;
+                  });
+                }
+              },
+              onPageChanged: (focusedDay) {
+                // No need to call `setState()` here
+                _focusedDay = focusedDay;
+              },
+              eventLoader: _listOfDayEvents,
             ),
-          ),
-        ],
+            ..._listOfDayEvents(_selectedDate!).map(
+              (myEvents) => Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: ThreeDimensionalContainer(
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.done,
+                      color: Colors.teal,
+                    ),
+                    title: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Text('Event Title:   ${myEvents['eventTitle']}'),
+                    ),
+                    subtitle: Text('Description:   ${myEvents['eventDescp']}'),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.black,
+        focusColor: Colors.white,
         onPressed: () => _showAddEventDialog(),
-        label: const Text('Add Event'),
+        label: const Text(
+          'Add Event',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

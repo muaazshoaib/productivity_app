@@ -1,9 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:productivity_app/app/modules/authentication/screens/authentication_screen.dart';
-
 import 'package:productivity_app/firebase_options.dart';
 import 'package:productivity_app/theme/theme.dart';
 
@@ -17,9 +15,7 @@ Future<void> main() async {
   await Hive.openBox("Habit_Database");
 
   runApp(
-    const ProviderScope(
-      child: ProductivityApp(),
-    ),
+    const ProductivityApp(),
   );
 }
 
@@ -29,6 +25,7 @@ class ProductivityApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Productivity App',
       theme: AppTheme.lightTheme,
       home: const AuthenticationScreen(),

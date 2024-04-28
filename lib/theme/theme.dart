@@ -9,42 +9,44 @@ class AppTheme {
       // app bar theme
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        color: Colors.transparent,
+        color: Colors.black,
+        foregroundColor: Colors.white,
         elevation: 0,
       ),
 
       // drawer theme
-      drawerTheme: DrawerThemeData(
-        backgroundColor: Colors.grey[300],
+      drawerTheme: const DrawerThemeData(
+        scrimColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0,
       ),
 
       // text theme
       textTheme: TextTheme(
         displayLarge: const TextStyle(
-          fontSize: 30.0,
+          fontSize: 22.0,
           fontWeight: FontWeight.bold,
         ),
         displayMedium: const TextStyle(
-          fontSize: 27.0,
+          fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),
         displaySmall: const TextStyle(
-          fontSize: 24.0,
+          fontSize: 18.0,
           fontWeight: FontWeight.bold,
         ),
         bodyLarge: TextStyle(
-          fontSize: 21.0,
+          fontSize: 16.0,
           color: Colors.grey[700],
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: TextStyle(
-          fontSize: 18.0,
+          fontSize: 14.0,
           color: Colors.grey[700],
           fontWeight: FontWeight.w400,
         ),
         bodySmall: TextStyle(
-          fontSize: 15.0,
+          fontSize: 10.0,
           color: Colors.grey[700],
           fontWeight: FontWeight.w400,
         ),

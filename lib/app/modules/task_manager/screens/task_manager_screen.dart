@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:productivity_app/app/modules/home_screen.dart';
+import 'package:productivity_app/app/utils/colors.dart';
 
 import '../model/todo.dart';
 import '../constants/colors.dart';
@@ -25,7 +27,7 @@ class _TaskManagerScreenState extends State<TaskManagerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: tdBGColor,
+      backgroundColor: kBackgroundColor,
       appBar: _buildAppBar(),
       body: Stack(
         children: [
@@ -42,13 +44,14 @@ class _TaskManagerScreenState extends State<TaskManagerScreen> {
                     children: [
                       Container(
                         margin: const EdgeInsets.only(
-                          top: 50,
+                          top: 10,
                           bottom: 20,
                         ),
                         child: const Text(
-                          'All ToDos',
+                          'ALL Tasks',
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 25,
+                            color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -80,7 +83,7 @@ class _TaskManagerScreenState extends State<TaskManagerScreen> {
                     vertical: 5,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: kBackgroundColor,
                     boxShadow: const [
                       BoxShadow(
                         color: Colors.grey,
@@ -94,8 +97,7 @@ class _TaskManagerScreenState extends State<TaskManagerScreen> {
                   child: TextField(
                     controller: _todoController,
                     decoration: const InputDecoration(
-                        hintText: 'Add a new todo item',
-                        border: InputBorder.none),
+                        hintText: 'Add a new todo ', border: InputBorder.none),
                   ),
                 ),
               ),
@@ -111,15 +113,13 @@ class _TaskManagerScreenState extends State<TaskManagerScreen> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: tdBlue,
-                    minimumSize: const Size(60, 60),
+                    backgroundColor: Colors.black,
+                    minimumSize: const Size(20, 20),
                     elevation: 10,
                   ),
                   child: const Text(
                     '+',
-                    style: TextStyle(
-                      fontSize: 40,
-                    ),
+                    style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ),
               ),
@@ -204,10 +204,20 @@ class _TaskManagerScreenState extends State<TaskManagerScreen> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(
-            Icons.menu,
-            color: tdBlack,
-            size: 30,
+          IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: tdBlack,
+              size: 30,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MainDrawer(),
+                ),
+              );
+            },
           ),
           SizedBox(
             height: 40,

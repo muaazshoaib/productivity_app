@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
+import 'package:productivity_app/app/utils/colors.dart';
 
 import '../widgets/message.dart';
 
@@ -42,14 +43,14 @@ class _GeminiChatBotScreenState extends State<GeminiChatBotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
-        title: const Text("Gemini"),
+        title: const Text("Gemini ChatBot"),
         centerTitle: true,
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
-      body: Container(
-          child: Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Expanded(
@@ -72,7 +73,7 @@ class _GeminiChatBotScreenState extends State<GeminiChatBotScreen> {
                     flex: 18,
                     child: TextField(
                       focusNode: _focusNode,
-                      style: const TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black, fontSize: 10),
                       controller: _userInput,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -99,7 +100,7 @@ class _GeminiChatBotScreenState extends State<GeminiChatBotScreen> {
             ),
           ),
         ],
-      )),
+      ),
     );
   }
 }

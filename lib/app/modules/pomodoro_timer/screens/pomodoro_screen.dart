@@ -1,58 +1,70 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:productivity_app/app/utils/colors.dart';
 
-import '../../../utils/colors.dart';
-import 'data.dart';
+import '../../pomodoro_timer/screens/data.dart';
 import 'habit.dart';
 import 'settings.dart';
 
 class PomodoroScreen extends StatefulWidget {
-  const PomodoroScreen({Key? key}) : super(key: key);
+  const PomodoroScreen({super.key});
 
   @override
   State<PomodoroScreen> createState() => _PomodoroScreenState();
 }
 
 class _PomodoroScreenState extends State<PomodoroScreen> {
-  int index = 1;
+  int tabIndex = 1;
+
+  final pages = [
+    const Data(),
+    const Habit(),
+    const Settings(),
+  ];
+
+  void changeTabIndex(int index) {
+    setState(() {
+      tabIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColor,
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 75,
-        animationCurve: Curves.easeInOut,
-        backgroundColor: Colors.grey.shade300,
-        buttonBackgroundColor: kBackgroundColor,
-        color: Colors.black,
-        animationDuration: const Duration(milliseconds: 350),
-        onTap: (selectedIndex) {
-          setState(() {
-            index = selectedIndex;
-          });
-        },
-        index: 1,
-        items: const [
-          Icon(Icons.timelapse_rounded, size: 20, color: Colors.white),
-          Icon(Icons.fitbit_rounded, size: 20, color: Colors.white),
-          Icon(Icons.history_rounded, size: 20, color: Colors.white),
+      body: IndexedStack(
+        index: tabIndex,
+        children: pages,
+      ),
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: kBackgroundColor,
+        onDestinationSelected: (int index) => changeTabIndex(index),
+        selectedIndex: tabIndex,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.timelapse_rounded),
+            selectedIcon: Icon(
+              Icons.timelapse_rounded,
+              color: Colors.black,
+            ),
+            label: 'Analytics',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.fitbit_rounded),
+            selectedIcon: Icon(
+              Icons.fitbit_rounded,
+              color: Colors.black,
+            ),
+            label: 'Pomodoro',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.history_rounded),
+            selectedIcon: Icon(
+              Icons.history_rounded,
+              color: Colors.black,
+            ),
+            label: 'History',
+          ),
         ],
       ),
-      body: Container(
-        child: getSelectedWidget(index: index),
-      ),
     );
-  }
-
-  Widget getSelectedWidget({required int index}) {
-    switch (index) {
-      case 0:
-        return const Data();
-      case 2:
-        return const Settings();
-      default:
-        return const Habit();
-    }
   }
 }
