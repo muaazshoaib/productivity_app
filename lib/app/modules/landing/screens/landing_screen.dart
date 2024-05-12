@@ -12,6 +12,7 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

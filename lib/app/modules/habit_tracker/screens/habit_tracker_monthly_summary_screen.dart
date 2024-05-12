@@ -19,10 +19,34 @@ class _HabitTrackerMonthlySummaryScreenState
   final _myBox = Hive.box("Habit_Database");
 
   @override
+  void initState() {
+    // if there is no current habit list, then it is the 1st time ever opening the app
+    // then create default data
+    if (_myBox.get("CURRENT_HABIT_LIST") == null) {
+      db.createDefaultData();
+    }
+
+    // there already exists data, this is not the first time
+    else {
+      db.loadData();
+    }
+
+    // update the database
+    db.updateDatabase();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Habit Tracker Analytics'),
+        title: const Text(
+          "Habit Tracker Analytics",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
       ),
       backgroundColor: Colors.grey[300],
       body: Center(

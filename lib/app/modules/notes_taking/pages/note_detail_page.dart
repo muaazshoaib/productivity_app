@@ -37,7 +37,9 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.grey[300],
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           actions: [editButton(), deleteButton()],
         ),
         body: isLoading

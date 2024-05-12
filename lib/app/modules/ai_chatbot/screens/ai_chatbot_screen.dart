@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
-import 'package:productivity_app/app/utils/colors.dart';
 
 import '../widgets/message.dart';
 
@@ -43,12 +42,16 @@ class _GeminiChatBotScreenState extends State<GeminiChatBotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        title: const Text("Gemini ChatBot"),
+        backgroundColor: Colors.transparent,
+        title: const Text(
+          "Gemini ChatBot",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
+        // backgroundColor: Colors.black,
+        // foregroundColor: Colors.white,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,

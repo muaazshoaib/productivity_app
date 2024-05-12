@@ -7,7 +7,8 @@ import '../../../widgets/my_body_text.dart';
 import '../../../widgets/my_button.dart';
 import '../../../widgets/my_heading.dart';
 import '../../../widgets/my_textfield.dart';
-import '../../home_screen.dart';
+// import '../../home_screen.dart';
+import '../../home.dart';
 import 'forgot_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -91,7 +92,7 @@ class _LoginPageState extends State<LoginScreen> {
                         if (context.mounted) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                              builder: (context) => const HomePage(),
                             ),
                           );
                         }

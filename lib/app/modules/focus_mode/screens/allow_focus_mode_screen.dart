@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dnd/flutter_dnd.dart';
 
-import '../../../widgets/back_button.dart';
 import '../../../widgets/inside_shadow_container.dart';
 import '../../../widgets/my_body_text.dart';
 import '../../../widgets/my_button.dart';
@@ -55,18 +54,25 @@ class _AllowFocusScreenState extends State<AllowFocusModeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
+      appBar: AppBar(
+        title: const Text(
+          "Allow Focus Mode",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BackButtonWidget(onTap: () {
-              Navigator.pop(context);
-            }),
-            const SizedBox(
-              height: 10,
-            ),
+            // BackButtonWidget(onTap: () {
+            //   Navigator.pop(context);
+            // }),
+            const SizedBox(height: 10),
             const InsideShadowContainer(
               child: TextContainer(
                 boldText: "Focus Mode",

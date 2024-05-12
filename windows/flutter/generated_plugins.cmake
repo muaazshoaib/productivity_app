@@ -4,8 +4,12 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   cloud_firestore
+  dynamic_color
+  file_selector_windows
   firebase_auth
   firebase_core
+  isar_flutter_libs
+  url_launcher_windows
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

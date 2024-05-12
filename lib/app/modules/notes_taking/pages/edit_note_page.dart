@@ -34,8 +34,9 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        // backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[300],
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           actions: [buildButton()],
         ),
         body: Form(
@@ -63,7 +64,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: Colors.grey.shade700,
+          backgroundColor: Colors.black,
         ),
         onPressed: addOrUpdateNote,
         child: const Text('Save'),

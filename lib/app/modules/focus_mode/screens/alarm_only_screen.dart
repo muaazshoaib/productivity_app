@@ -3,7 +3,6 @@ import 'package:flutter_dnd/flutter_dnd.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 import '../../../utils/colors.dart';
-import '../../../widgets/back_button.dart';
 import '../widgets/image_container.dart';
 import '../widgets/text_container.dart';
 
@@ -30,20 +29,26 @@ class _AlarmOnlyScreenState extends State<AlarmOnlyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackgroundColor,
+      appBar: AppBar(
+        title: const Text(
+          "Alarm Only",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BackButtonWidget(
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            const SizedBox(
-              height: 10,
-            ),
+            // BackButtonWidget(
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //   },
+            // ),
+            const SizedBox(height: 10),
             const TextContainer(
                 boldText: "Alarm Only", text2: "Focus With Alarm Only"),
             const ImageContainer(

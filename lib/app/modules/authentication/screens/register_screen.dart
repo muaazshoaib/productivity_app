@@ -8,7 +8,8 @@ import '../../../widgets/my_body_text.dart';
 import '../../../widgets/my_button.dart';
 import '../../../widgets/my_heading.dart';
 import '../../../widgets/my_textfield.dart';
-import '../../home_screen.dart';
+import '../../home.dart';
+// import '../../home_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({
@@ -94,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         if (context.mounted) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                              builder: (context) => const HomePage(),
                             ),
                           );
                         }

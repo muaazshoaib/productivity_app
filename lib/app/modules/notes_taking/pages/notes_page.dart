@@ -41,12 +41,14 @@ class _NotesPageState extends State<NotesPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.grey[300],
         appBar: AppBar(
           title: const Text(
-            'Notes',
-            style: TextStyle(fontSize: 24),
+            "Text Notes",
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          actions: const [Icon(Icons.search), SizedBox(width: 12)],
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
         ),
         body: Center(
           child: isLoading

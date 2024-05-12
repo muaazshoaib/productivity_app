@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/colors.dart';
-import '../../../widgets/back_button.dart';
+
 import '../../../widgets/inside_shadow_container.dart';
 import '../widgets/feature_container.dart';
 import '../widgets/text_container.dart';
@@ -16,20 +16,26 @@ class AllFocusModesFeaturesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackgroundColor,
+      appBar: AppBar(
+        title: const Text(
+          "Focus Mode",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BackButtonWidget(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
+              // BackButtonWidget(
+              //   onTap: () {
+              //     Navigator.pop(context);
+              //   },
+              // ),
+              const SizedBox(height: 10),
               const InsideShadowContainer(
                 child: TextContainer(
                     boldText: "Elevate Your Focus",

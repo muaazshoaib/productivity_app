@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:productivity_app/app/utils/colors.dart';
-
-import '../../pomodoro_timer/screens/data.dart';
-import 'habit.dart';
-import 'settings.dart';
+import 'package:fyp/app/modules/pomodoro_timer/screens/data.dart';
+import 'package:fyp/app/modules/pomodoro_timer/screens/habit.dart';
+import 'package:fyp/app/modules/pomodoro_timer/screens/settings.dart';
 
 class PomodoroScreen extends StatefulWidget {
   const PomodoroScreen({super.key});
@@ -30,36 +28,37 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       body: IndexedStack(
         index: tabIndex,
         children: pages,
       ),
       bottomNavigationBar: NavigationBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Colors.transparent,
         onDestinationSelected: (int index) => changeTabIndex(index),
         selectedIndex: tabIndex,
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.timelapse_rounded),
+            icon: Icon(Icons.timelapse_outlined),
             selectedIcon: Icon(
               Icons.timelapse_rounded,
-              color: Colors.black,
+              // color: Colors.black,
             ),
             label: 'Analytics',
           ),
           NavigationDestination(
-            icon: Icon(Icons.fitbit_rounded),
+            icon: Icon(Icons.fitbit_outlined),
             selectedIcon: Icon(
               Icons.fitbit_rounded,
-              color: Colors.black,
+              // color: Colors.black,
             ),
             label: 'Pomodoro',
           ),
           NavigationDestination(
-            icon: Icon(Icons.history_rounded),
+            icon: Icon(Icons.history_outlined),
             selectedIcon: Icon(
               Icons.history_rounded,
-              color: Colors.black,
+              // color: Colors.black,
             ),
             label: 'History',
           ),
