@@ -88,11 +88,9 @@ class _GeminiChatBotScreenState extends State<GeminiChatBotScreen> {
                     padding: const EdgeInsets.all(12),
                     iconSize: 25,
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.black),
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                        shape: MaterialStateProperty.all(const CircleBorder())),
+                        backgroundColor: WidgetStateProperty.all(Colors.black),
+                        foregroundColor: WidgetStateProperty.all(Colors.white),
+                        shape: WidgetStateProperty.all(const CircleBorder())),
                     onPressed: () {
                       talkWithGemini();
                       _userInput.clear();

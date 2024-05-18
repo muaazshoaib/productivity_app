@@ -17,7 +17,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-// import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:isar/isar.dart';
 import 'package:fyp/theme/theme_controller.dart';
 import 'app/data/schema.dart';
@@ -67,19 +66,19 @@ void main() async {
   }
   tz.initializeTimeZones();
   tz.setLocalLocation(tz.getLocation(timeZoneName));
-  const DarwinInitializationSettings initializationSettingsIos =
-      DarwinInitializationSettings();
+
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('@mipmap/ic_launcher');
-  const LinuxInitializationSettings initializationSettingsLinux =
-      LinuxInitializationSettings(defaultActionName: 'ToDark');
+
   const InitializationSettings initializationSettings = InitializationSettings(
-      android: initializationSettingsAndroid,
-      linux: initializationSettingsLinux,
-      iOS: initializationSettingsIos);
+    android: initializationSettingsAndroid);
+
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
   await IsarController().openDB();
+
   await initSettings();
+
   runApp(const MyApp());
 }
 
@@ -234,9 +233,7 @@ class _MyAppState extends State<MyApp> {
             supportedLocales:
                 appLanguages.map((e) => e['locale'] as Locale).toList(),
             debugShowCheckedModeBanner: false,
-            // home: settings.onboard ? const HomePage() : const OnBording(),
             home: const AuthenticationScreen(),
-            // builder: EasyLoading.init(),
           );
         },
       ),

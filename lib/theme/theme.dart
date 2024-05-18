@@ -24,8 +24,7 @@ ThemeData lightTheme(Color? color, ColorScheme? colorScheme) {
     colorScheme: colorScheme
         ?.copyWith(
           brightness: Brightness.light,
-          background: color,
-          surface: baseLigth.colorScheme.background,
+          surface: baseLigth.colorScheme.surface,
         )
         .harmonized(),
     textTheme: GoogleFonts.getTextTheme('Ubuntu', baseLigth.textTheme),
@@ -54,13 +53,13 @@ ThemeData lightTheme(Color? color, ColorScheme? colorScheme) {
     ),
     navigationBarTheme: baseLigth.navigationBarTheme.copyWith(
       backgroundColor: color,
-      labelTextStyle: MaterialStateProperty.all(
+      labelTextStyle: WidgetStateProperty.all(
         const TextStyle(overflow: TextOverflow.ellipsis, fontSize: 12),
       ),
     ),
     inputDecorationTheme: baseLigth.inputDecorationTheme.copyWith(
-      labelStyle: MaterialStateTextStyle.resolveWith(
-        (Set<MaterialState> states) {
+      labelStyle: WidgetStateTextStyle.resolveWith(
+        (Set<WidgetState> states) {
           return const TextStyle(fontSize: 14);
         },
       ),
@@ -86,8 +85,7 @@ ThemeData darkTheme(Color? color, ColorScheme? colorScheme) {
     colorScheme: colorScheme
         ?.copyWith(
           brightness: Brightness.dark,
-          background: color,
-          surface: baseDark.colorScheme.background,
+          surface: baseDark.colorScheme.surface,
         )
         .harmonized(),
     textTheme: GoogleFonts.getTextTheme('Ubuntu', baseDark.textTheme),
@@ -116,13 +114,13 @@ ThemeData darkTheme(Color? color, ColorScheme? colorScheme) {
     ),
     navigationBarTheme: baseDark.navigationBarTheme.copyWith(
       backgroundColor: color,
-      labelTextStyle: MaterialStateProperty.all(
+      labelTextStyle: WidgetStateProperty.all(
         const TextStyle(overflow: TextOverflow.ellipsis, fontSize: 12),
       ),
     ),
     inputDecorationTheme: baseDark.inputDecorationTheme.copyWith(
-      labelStyle: MaterialStateTextStyle.resolveWith(
-        (Set<MaterialState> states) {
+      labelStyle: WidgetStateTextStyle.resolveWith(
+        (Set<WidgetState> states) {
           return const TextStyle(fontSize: 14);
         },
       ),

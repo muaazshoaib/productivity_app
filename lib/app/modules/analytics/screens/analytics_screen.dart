@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../habit_tracker/screens/habit_tracker_monthly_summary_screen.dart';
 
 import '../../pomodoro_timer/screens/data.dart';
-import 'package:fyp/app/modules/step_count/pages/step_count.dart';
+// import 'package:fyp/app/modules/step_count/pages/step_count.dart';
 
 class AnalyticsScreen extends StatefulWidget {
   const AnalyticsScreen({super.key});
@@ -18,7 +18,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   final pages = [
     const Data(),
     const HabitTrackerMonthlySummaryScreen(),
-    const StepCountPage(),
+    // const StepCountPage(),
   ];
 
   void changeTabIndex(int index) {
@@ -56,14 +56,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             ),
             label: 'Habit Tracker',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.directions_walk),
-            selectedIcon: Icon(
-              Icons.directions_walk,
-              // color: Colors.black,
-            ),
-            label: 'Step Count',
-          ),
+          // NavigationDestination(
+          //   icon: Icon(Icons.directions_walk),
+          //   selectedIcon: Icon(
+          //     Icons.directions_walk,
+          //     // color: Colors.black,
+          //   ),
+          //   label: 'Step Count',
+          // ),
         ],
       ),
     );

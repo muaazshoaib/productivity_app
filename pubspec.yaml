@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
   get: ^4.6.6
   path: ^1.9.0
-  intl: ^0.18.1
+  intl: ^0.19.0
   isar: ^3.1.0+1
   iconsax: ^0.0.8
   timezone: ^0.9.3
@@ -38,29 +38,23 @@ dependencies:
   flutter_displaymode: ^0.6.0
   sleek_circular_slider: ^2.0.1
   flutter_local_notifications: ^17.1.0
-
-  # productivity app
-  firebase_auth:
-  firebase_core:
-  cloud_firestore:
-  flutter_dnd:
-  flutter_switch:
-  flutter_inset_box_shadow:
-  hive_flutter:
-  flutter_slidable:
-  flutter_heatmap_calendar:
-  # intl:
-  shared_preferences:
-  animated_snack_bar:
-  google_generative_ai:
-  # table_calendar:
-  flutter_staggered_grid_view:
-  sqflite:
+  firebase_auth: ^4.19.5
+  firebase_core: ^2.31.0
+  cloud_firestore: ^4.17.3
+  flutter_dnd: ^0.1.4+1
+  flutter_switch: ^0.3.2
+  flutter_inset_box_shadow: ^1.0.8
+  hive_flutter: ^1.1.0
+  flutter_slidable: ^3.1.0
+  flutter_heatmap_calendar: ^1.0.5
+  shared_preferences: ^2.2.3
+  animated_snack_bar: ^0.4.0
+  google_generative_ai: ^0.4.0
+  flutter_staggered_grid_view: ^0.7.0
+  sqflite: ^2.3.3+1
   image_picker: ^1.1.1
   hive: ^2.2.3
   pedometer: ^4.0.1
-  # path:
-
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +65,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
   assets:
     - assets/images/

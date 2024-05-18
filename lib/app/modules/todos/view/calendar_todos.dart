@@ -190,9 +190,8 @@ class _CalendarTodosState extends State<CalendarTodos> {
                           isScrollable: true,
                           dividerColor: Colors.transparent,
                           splashFactory: NoSplash.splashFactory,
-                          overlayColor:
-                              MaterialStateProperty.resolveWith<Color?>(
-                            (Set<MaterialState> states) {
+                          overlayColor: WidgetStateProperty.resolveWith<Color?>(
+                            (Set<WidgetState> states) {
                               return Colors.transparent;
                             },
                           ),
